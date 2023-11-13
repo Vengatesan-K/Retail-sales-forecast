@@ -25,11 +25,20 @@ from prophet.diagnostics import cross_validation, performance_metrics
 import warnings
 warnings.filterwarnings('ignore')
 
-st.write("""
-<div style='text-align:right'>
-    <h1 style='color:#1e90ff;'>🛒Retail Sales Forecasting</h1>
-</div>
-""", unsafe_allow_html=True)
+header_html = """
+    <div style="text-align:center;">
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <img src="https://cdn3.iconfinder.com/data/icons/buildings-and-structures-1/512/Retail-512.png" style="max-width: 80px; display: block; margin-left: 0.5px;">
+            <h1 style="color: #006a79; margin-bottom: 5px;">Retail Sales Forecasting</h1>
+        </div>
+    </div>
+"""
+st.markdown(header_html, unsafe_allow_html=True)
+st.markdown(
+    '<p style="text-align:center; margin-top: 10px; color: #006a79;">'
+    'Copyright (©) Vengatesan-K. All Rights Reserved.</p>',
+    unsafe_allow_html=True,
+)
 container_style = """
     border-radius: 10px;
     background-color: #f5f5f5;
@@ -345,13 +354,11 @@ for i, column in enumerate(selected_columns):
 
 import streamlit as st
 
-# Your high correlation text
-high_corr_text = """
+predefined_high_corr_text = f"""
     <ul>
         <li>The retail weekly sales experience heightened levels during December and February, primarily attributable to increased holiday shopping activity and high markdowns (discounted prices)</li>
         <li>Weekly sales of stores of bigger sizes are generally higher than stores of smaller sizes. Stores of type A are the largest, followed by B and then C being the smallest size stores. However, the minimum weekly sales of store B are higher than that of store A.</li>
         <li>🧮 High Correlation Columns : {high_corr_text} </li>
-        <!-- Add more items as needed -->
     </ul>
 """
 
@@ -372,11 +379,13 @@ custom_css = """
     </style>
 """
 
-# Display the custom-styled content
-st.markdown(f"{custom_css}<div class='high-corr-container'><h4>💡 Insights:</h4><ul class='bullet-list'>{high_corr_text}</ul></div>", unsafe_allow_html=True)
+st.write(f"{custom_css}<div class='high-corr-container'><h4>💡Insights :</h4><ul class='bullet-list'>{predefined_high_corr_text}</ul></div>", unsafe_allow_html=True)
 st.markdown("---")
 
-
+st.markdown('''
+<h2 style="color:#1e90ff; margin-bottom: 0;">Sales Forecasting</h2>
+<hr style="border: 1px solid #1e90ff; background-color: #1e90ff; margin-top: 0;">
+''', unsafe_allow_html=True) 
 df.Date = pd.to_datetime(df.Date)
 store_1 = df[(df.Store == 1) & (df.Dept == 1)].sort_values('Date')
 df_1 = store_1[['Date', 'Weekly_Sales']]
@@ -392,6 +401,7 @@ fig9.add_trace(go.Scatter(x=forecast['ds'], y=forecast['yhat_lower'], fill='tone
 fig9.add_trace(go.Scatter(x=forecast['ds'], y=forecast['yhat_upper'], fill='tonexty', mode='lines', line=dict(color='rgba(0,100,80,0.2)'), name='Upper Bound'))
 
 st.plotly_chart(fig9,use_container_width=True)
+st.markdown("---")
 import plotly.subplots as sp
 fig_components = sp.make_subplots(rows=3, cols=1, subplot_titles=('Trend', 'Weekly', 'Yearly'))
 
@@ -405,7 +415,7 @@ fig_components.update_layout(title_text='Prophet Components', height=800)
 
 # Display the Plotly figure in Streamlit
 st.plotly_chart(fig_components,use_container_width=True)
-
+st.markdown("---")
 import os
 
 class suppress_stdout_stderr(object):
@@ -508,9 +518,7 @@ fig_forecast.add_trace(go.Scatter(x=forecast['ds'], y=forecast['yhat_lower'], fi
 fig_forecast.add_trace(go.Scatter(x=forecast['ds'], y=forecast['yhat_upper'], fill='tonexty', mode='lines', line=dict(color='rgba(0,100,80,0.2)'), name='Upper Bound'))
 
 st.plotly_chart(fig_forecast,use_container_width=True)
-
-
-
+st.markdown("---")
 
 
 #st.markdown("<hr>", unsafe_allow_html=True)
@@ -567,7 +575,10 @@ st.markdown("""
         <a class="nav-link" href="#analysis-of-historical-retail-data">Analysis</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#predict-week-sales">Forecasting Sales</a>
+        <a class="nav-link" href="#sales-forecasting">Forecasting</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#predict-week-sales">Prediction</a>
     </ul>
   </div>
 </nav>
@@ -652,11 +663,43 @@ if submit_button:
     else:
         # Make predictions
         prediction = loaded_model.predict(X_preprocessed)
+        col5,col6 =st.columns([9,1])
+        with col5:
+         st.write(' ')
+         st.write(' ')
+         st.info(f"The predicted week sales is :🔖{prediction[0]}")
+        rounded_prediction = round(prediction.item())
+        with col6:
+         st.markdown(
+            f"""
+            <style>
+            .centered-content {{
+                width: 100px;
+                height: 100px;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-image: url('https://www.pngall.com/wp-content/uploads/4/Blank-Price-Tag-PNG-Free-Image.png');
+                background-size: 100% 100%;
+                box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+            }}
 
-        st.info(f"The predicted week sales is :🔖{prediction[0]}")
+            .centered-content p {{
+                font-size: 12px;  /* Reduced font size */
+                font-weight: bold;
+                color: white;
+                margin: 0;  /* Remove default margin */
+                text-align: center;
+            }}
+            </style>
 
-
-
+            <div class="centered-content">
+                <p>${rounded_prediction}</p>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
 
 
