@@ -7,3 +7,4 @@ seaborn==0.13.0
 scikit-learn==1.3.2
 prophet==1.1.5
 streamlit-extras==0.3.6
+streamlit-lottie==0.0.5
