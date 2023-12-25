@@ -60,7 +60,7 @@ You are provided with historical sales data for 45 stores located in different r
 ![newplot (56)](https://github.com/Vengatesan-K/IMDB-Movies-Analysis/assets/128688827/c8ede5fe-562d-40f7-adea-a8361f4e663e)
 
 ![newplot (57)](https://github.com/Vengatesan-K/IMDB-Movies-Analysis/assets/128688827/1f5f01eb-26fc-48d8-a3bb-3528673e6f17)
-
+***
 ## Predictive analysis using Regression 
 ![Screenshot 2023-12-25 184850](https://github.com/Vengatesan-K/IMDB-Movies-Analysis/assets/128688827/1b69b0bd-afaf-4e5f-a0aa-e444610e1a31)
 
