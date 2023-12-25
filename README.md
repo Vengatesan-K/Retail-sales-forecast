@@ -39,26 +39,26 @@ You are provided with historical sales data for 45 stores located in different r
 
 ## Exploratory Data Analysis (EDA)
 ![newplot (45)](https://github.com/Vengatesan-K/IMDB-Movies-Analysis/assets/128688827/32e8600b-ce79-4bf3-b193-a851211b5413)
-***
+
 ![newplot (46)](https://github.com/Vengatesan-K/IMDB-Movies-Analysis/assets/128688827/2db84236-3130-4ac5-9b2b-9f6ef9b015eb)
-***
+
 ![newplot (47)](https://github.com/Vengatesan-K/IMDB-Movies-Analysis/assets/128688827/d7670473-8998-4d2d-98a4-3d95b55d1431)
-***
+
 ![newplot (48)](https://github.com/Vengatesan-K/IMDB-Movies-Analysis/assets/128688827/a2ce7407-7666-4895-93a7-526d6ea07b85)
-***
+
 ![newplot (49)](https://github.com/Vengatesan-K/IMDB-Movies-Analysis/assets/128688827/353e287d-918b-4e2c-8c5c-60071211b4ea)
-***
+
 ![newplot (52)](https://github.com/Vengatesan-K/IMDB-Movies-Analysis/assets/128688827/e3040e6e-68a2-4921-a8bc-8040e3efd1b2)
-***
+
 ![newplot (53)](https://github.com/Vengatesan-K/IMDB-Movies-Analysis/assets/128688827/6b097b52-53d1-494d-89c4-4700deb98bcf)
-***
+
 ![newplot (54)](https://github.com/Vengatesan-K/IMDB-Movies-Analysis/assets/128688827/f9d4033d-98fd-4224-8bf2-24218c37ce32)
-***
+
 ![newplot (55)](https://github.com/Vengatesan-K/IMDB-Movies-Analysis/assets/128688827/3404be84-b0ad-429c-9cb8-77036bb83a1f)
 ***
 ## TimeSeries Forecasting using Prophet
 ![newplot (56)](https://github.com/Vengatesan-K/IMDB-Movies-Analysis/assets/128688827/c8ede5fe-562d-40f7-adea-a8361f4e663e)
-***
+
 ![newplot (57)](https://github.com/Vengatesan-K/IMDB-Movies-Analysis/assets/128688827/1f5f01eb-26fc-48d8-a3bb-3528673e6f17)
 
 ## Predictive analysis using Regression 
